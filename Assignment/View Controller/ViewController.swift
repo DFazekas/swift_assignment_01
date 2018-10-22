@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func unwindToThisView(segue : UIStoryboardSegue) {
+    @IBAction func unwindToHomeViewController(segue : UIStoryboardSegue) {
         // Leave empty.
     }
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0099F493217B969F0008D6F7 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0099F492217B969F0008D6F7 /* AvatarViewController.swift */; };
+		0099F4C2217D12900008D6F7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0099F4C1217D12900008D6F7 /* EditProfileViewController.swift */; };
+		0099F4EF217D4C2C0008D6F7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0099F4EE217D4C2C0008D6F7 /* Data.swift */; };
+		0099F4F1217D4C4C0008D6F7 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0099F4F0217D4C4C0008D6F7 /* SiteCell.swift */; };
+		0099F4F8217D507B0008D6F7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0099F4F6217D507B0008D6F7 /* libsqlite3.tbd */; };
+		0099F4F9217D507B0008D6F7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0099F4F7217D507B0008D6F7 /* libsqlite3.0.tbd */; };
+		0099F503217D81C10008D6F7 /* Assignment2Database.db in Resources */ = {isa = PBXBuildFile; fileRef = 0099F502217D81C10008D6F7 /* Assignment2Database.db */; };
 		238182B92156DA3400A70933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238182B82156DA3400A70933 /* AppDelegate.swift */; };
 		238182BB2156DA3400A70933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238182BA2156DA3400A70933 /* ViewController.swift */; };
 		238182BE2156DA3400A70933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238182BC2156DA3400A70933 /* Main.storyboard */; };
@@ -19,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0099F492217B969F0008D6F7 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		0099F4C1217D12900008D6F7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		0099F4EE217D4C2C0008D6F7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		0099F4F0217D4C4C0008D6F7 /* SiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteCell.swift; sourceTree = "<group>"; };
+		0099F4F6217D507B0008D6F7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0099F4F7217D507B0008D6F7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0099F502217D81C10008D6F7 /* Assignment2Database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Assignment2Database.db; sourceTree = "<group>"; };
 		238182B52156DA3400A70933 /* Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238182B82156DA3400A70933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238182BA2156DA3400A70933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0099F4F8217D507B0008D6F7 /* libsqlite3.tbd in Frameworks */,
+				0099F4F9217D507B0008D6F7 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0099F4F2217D4D3B0008D6F7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				0099F502217D81C10008D6F7 /* Assignment2Database.db */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		0099F4F5217D507B0008D6F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0099F4F7217D507B0008D6F7 /* libsqlite3.0.tbd */,
+				0099F4F6217D507B0008D6F7 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		238182AC2156DA3400A70933 = {
 			isa = PBXGroup;
 			children = (
 				238182B72156DA3400A70933 /* Assignment */,
 				238182B62156DA3400A70933 /* Products */,
+				0099F4F5217D507B0008D6F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +96,7 @@
 		238182B72156DA3400A70933 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				0099F4F2217D4D3B0008D6F7 /* Database */,
 				238182CD2156DAA500A70933 /* Storyboards */,
 				238182CC2156DAA000A70933 /* Images */,
 				238182CB2156DA9A00A70933 /* Classes */,
@@ -78,6 +113,8 @@
 				238182D42156E95C00A70933 /* AboutViewController.swift */,
 				238182D62156E96F00A70933 /* ProfileViewController.swift */,
 				238182D82156E97E00A70933 /* PortfolioViewController.swift */,
+				0099F492217B969F0008D6F7 /* AvatarViewController.swift */,
+				0099F4C1217D12900008D6F7 /* EditProfileViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -86,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				238182B82156DA3400A70933 /* AppDelegate.swift */,
+				0099F4EE217D4C2C0008D6F7 /* Data.swift */,
+				0099F4F0217D4C4C0008D6F7 /* SiteCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -169,6 +208,7 @@
 				23EBB39A2158154800F0A8E9 /* background_grey.jpg in Resources */,
 				238182C32156DA3500A70933 /* LaunchScreen.storyboard in Resources */,
 				238182C02156DA3500A70933 /* Assets.xcassets in Resources */,
+				0099F503217D81C10008D6F7 /* Assignment2Database.db in Resources */,
 				238182BE2156DA3400A70933 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,11 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0099F4C2217D12900008D6F7 /* EditProfileViewController.swift in Sources */,
 				238182D52156E95C00A70933 /* AboutViewController.swift in Sources */,
 				238182D92156E97E00A70933 /* PortfolioViewController.swift in Sources */,
 				238182BB2156DA3400A70933 /* ViewController.swift in Sources */,
+				0099F4F1217D4C4C0008D6F7 /* SiteCell.swift in Sources */,
 				238182D72156E96F00A70933 /* ProfileViewController.swift in Sources */,
 				238182B92156DA3400A70933 /* AppDelegate.swift in Sources */,
+				0099F493217B969F0008D6F7 /* AvatarViewController.swift in Sources */,
+				0099F4EF217D4C2C0008D6F7 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Assignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,6 +392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Assignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

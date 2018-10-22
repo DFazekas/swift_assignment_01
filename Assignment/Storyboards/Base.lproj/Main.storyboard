@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,7 +31,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hw3-Xa-73x" kind="presentation" identifier="goingToAboutPage" id="Ffs-21-slC"/>
+                                    <segue destination="hw3-Xa-73x" kind="presentation" identifier="HomeSegueToAbout" id="Ffs-21-slC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-pN-AHI">
@@ -43,7 +43,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="B46-gs-b3N" kind="presentation" identifier="goingToProfilePage" id="8Ne-op-nG2"/>
+                                    <segue destination="cyO-m8-bU6" kind="presentation" identifier="HomeSegueToProfile" id="PCP-Eg-TpC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSa-3A-HOc">
@@ -55,7 +55,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kRC-3H-uOR" kind="presentation" identifier="goingToPortfolioPage" id="vQb-EW-c1f"/>
+                                    <segue destination="kRC-3H-uOR" kind="presentation" identifier="HomeSegueToPortfolio" id="vQb-EW-c1f"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Assignment 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AX-PW-hPx">
@@ -84,7 +84,7 @@
         <!--Profile page-->
         <scene sceneID="9u3-PY-trY">
             <objects>
-                <viewController title="Profile page" id="B46-gs-b3N" customClass="ProfileViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile page" id="B46-gs-b3N" customClass="EditProfileViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WGC-Lt-Gj6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,10 +97,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="PROFILE" id="Tly-wS-U1D">
+                                    <navigationItem title="EDIT PROFILE" id="Tly-wS-U1D">
                                         <barButtonItem key="leftBarButtonItem" title="BACK" id="4ae-a5-JMR">
                                             <connections>
-                                                <segue destination="sLh-6c-U0R" kind="unwind" unwindAction="unwindToThisViewWithSegue:" id="el6-RG-bd1"/>
+                                                <segue destination="sLh-6c-U0R" kind="unwind" unwindAction="unwindToProfileViewControllerWithSender:" id="7u7-X8-UsB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -253,6 +253,10 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-SD-ihv">
+                                <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a9y-dX-Zmg"/>
@@ -260,6 +264,7 @@
                     <connections>
                         <outlet property="btnSubmit" destination="BC8-PJ-S3o" id="tW5-yK-kk3"/>
                         <outlet property="dtDOB" destination="d4N-CN-zx2" id="16l-BB-ivC"/>
+                        <outlet property="imgAvatar" destination="JdP-SD-ihv" id="FEy-S6-fTt"/>
                         <outlet property="lblAge" destination="9Bi-YL-Uzk" id="BhC-Gp-qsk"/>
                         <outlet property="slAge" destination="tvi-dC-k6s" id="SC0-62-kYR"/>
                         <outlet property="swGender" destination="r3L-xc-C91" id="sjD-RD-aIl"/>
@@ -267,12 +272,65 @@
                         <outlet property="txtEmail" destination="DoS-cg-Rou" id="suo-rC-Rxu"/>
                         <outlet property="txtName" destination="E4z-Rc-zOd" id="rE3-59-aqW"/>
                         <outlet property="txtPhone" destination="jA6-46-qBO" id="vIg-st-GzC"/>
+                        <segue destination="bcn-IV-tNc" kind="presentation" identifier="EditProfileSegueToAvatar" id="BZB-lC-T5Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfr-ei-nKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sLh-6c-U0R" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1312.8" y="730.88455772113946"/>
+            <point key="canvasLocation" x="2372" y="221.73913043478262"/>
+        </scene>
+        <!--Avatar View Controller-->
+        <scene sceneID="te3-bU-J0d">
+            <objects>
+                <viewController id="bcn-IV-tNc" customClass="AvatarViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b3y-2K-YTn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_grey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Qgi-X0-qh9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzY-sS-BI5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="AVATAR" id="kKa-QB-qmf">
+                                        <barButtonItem key="leftBarButtonItem" title="BACK" id="XVD-nh-oyi">
+                                            <connections>
+                                                <segue destination="PaU-74-so1" kind="unwind" unwindAction="unwindToEditViewControllerWithSender:" id="qqt-lV-hFQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="Eln-Uo-Fud">
+                                <rect key="frame" x="127" y="105" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic2" translatesAutoresizingMaskIntoConstraints="NO" id="08g-ty-I1y">
+                                <rect key="frame" x="127" y="245" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic3" translatesAutoresizingMaskIntoConstraints="NO" id="gFb-xr-zz8">
+                                <rect key="frame" x="127" y="388" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XBi-bx-VuX"/>
+                    </view>
+                    <connections>
+                        <outlet property="img1" destination="Eln-Uo-Fud" id="p4x-nl-Idh"/>
+                        <outlet property="img2" destination="08g-ty-I1y" id="ton-6E-XxJ"/>
+                        <outlet property="img3" destination="gFb-xr-zz8" id="2A8-XW-abr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yv-GS-lKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PaU-74-so1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2372" y="936.88155922038993"/>
         </scene>
         <!--About page-->
         <scene sceneID="E28-7i-nYn">
@@ -293,7 +351,7 @@
                                     <navigationItem title="ABOUT" id="3m2-hq-Fkv">
                                         <barButtonItem key="leftBarButtonItem" title="BACK" id="pK1-5m-SGX">
                                             <connections>
-                                                <segue destination="Tic-Vs-Jdv" kind="unwind" unwindAction="unwindToThisViewWithSegue:" id="M6w-0y-7yM"/>
+                                                <segue destination="Tic-Vs-Jdv" kind="unwind" unwindAction="unwindToHomeViewControllerWithSegue:" id="hvT-lU-lVW"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -318,6 +376,54 @@
             </objects>
             <point key="canvasLocation" x="1312.8" y="-104.7976011994003"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="wgc-El-879">
+            <objects>
+                <viewController id="cyO-m8-bU6" customClass="ProfileViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eQ0-6H-yRA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQt-R0-Ikz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="PROFILE" id="rWd-gg-1Wt">
+                                        <barButtonItem key="leftBarButtonItem" title="BACK" id="ieW-ZM-fTs">
+                                            <connections>
+                                                <segue destination="XFZ-jq-yBN" kind="unwind" unwindAction="unwindToHomeViewControllerWithSegue:" id="mTj-Cu-tAh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="6kR-AJ-zsc">
+                                            <connections>
+                                                <segue destination="B46-gs-b3N" kind="presentation" identifier="ProfileSegueToEditProfile" id="LA0-V2-zUk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9FO-p1-qsb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cyO-m8-bU6" id="3s0-Y5-eGz"/>
+                                    <outlet property="delegate" destination="cyO-m8-bU6" id="lDZ-4S-9Xn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2hf-rm-XOo"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9FO-p1-qsb" id="sdE-jv-NRc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pz9-YE-gUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XFZ-jq-yBN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1312.8" y="588.75562218890559"/>
+        </scene>
         <!--Portfolio page-->
         <scene sceneID="V02-2s-2WV">
             <objects>
@@ -333,7 +439,7 @@
                                     <navigationItem title="PORTFOLIO" id="zVu-CX-UZq">
                                         <barButtonItem key="leftBarButtonItem" title="BACK" id="9Ao-92-sed">
                                             <connections>
-                                                <segue destination="zM5-0j-B9w" kind="unwind" unwindAction="unwindToThisViewWithSegue:" id="fin-ZS-8Dy"/>
+                                                <segue destination="zM5-0j-B9w" kind="unwind" unwindAction="unwindToHomeViewControllerWithSegue:" id="aNp-ok-Oym"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -365,10 +471,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4X-IS-ckP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zM5-0j-B9w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1312.8" y="1510.7946026986508"/>
+            <point key="canvasLocation" x="1313" y="1328"/>
         </scene>
     </scenes>
     <resources>
         <image name="background_grey.jpg" width="2560" height="1440"/>
+        <image name="pic1" width="118" height="159"/>
+        <image name="pic2" width="359" height="410"/>
+        <image name="pic3" width="400" height="430"/>
     </resources>
 </document>

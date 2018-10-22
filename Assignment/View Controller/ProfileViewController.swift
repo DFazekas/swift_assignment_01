@@ -8,87 +8,66 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet var txtName : UITextField!     // TextField - Name
-    @IBOutlet var txtAddress : UITextField!  // TextField - Address
-    @IBOutlet var txtPhone : UITextField!    // TextField - Phone #
-    @IBOutlet var txtEmail : UITextField!    // TextField - Email
-    @IBOutlet var swGender : UISwitch!      // Switch - Gender
-    @IBOutlet var dtDOB : UIDatePicker!     // DatePicker - DOB
-    @IBOutlet var slAge : UISlider!         // Slider - Age
-    @IBOutlet var lblAge : UILabel!         // Label - Age
-    @IBOutlet var btnSubmit : UIButton!     // Button - Submit
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    //////////////////// Keyboard
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Unhide keyboard.
-        return textField.resignFirstResponder();
-    }
-    
-    //////////////////// Slider
-    @IBAction func sliderValueChange(sender : UISlider) {
-        // Handles slider value change.
-        updateLabel();
-    }
-    
-    func updateLabel() {
-        let age = NSInteger(slAge.value)
-        lblAge.text = "Age(\(age)):";
-    }
-    
-    //////////////////// Submit
-    @IBAction func submitProfile(sender : UIButton) {
-        // Get name and email.
-        let name = txtName.text ?? "";
-        let email = txtEmail.text ?? "";
-        
-        // Ensure name and email are filled.
-        if (!name.isEmpty && !email.isEmpty) {
-            // Alert confirmation with user.
-            let alert = UIAlertController(title: "Changes saved", message: "Thank you, \(name). Your email, \(email), was successfully saved.", preferredStyle: .alert);
-            
-            let yesAction = UIAlertAction(title: "Continue", style: .default, handler: {(alert: UIAlertAction!) in
-                self.dismiss(animated: true, completion: nil);
-            });
-            
-            // Join alert buttons to alert box.
-            alert.addAction(yesAction);
-            
-            // Picard - "make it so".
-            present(alert, animated: true);
-        }
-        else {
-            // Inform user of empty required fields.
-            let alert = UIAlertController(title: "Error", message: "Some of the required fields are empty!", preferredStyle: .alert);
-            
-            let yesAction = UIAlertAction(title: "Sorry, I'll fix it", style: .default, handler: nil);
-            
-            alert.addAction(yesAction);
-            present(alert, animated: true);
-        }
-        
-    }
-    
-    func doTheUpdate() {
-        // Save the profile data.
-        //let data : Data = .init();
-        //data.initWithStuff(theName: txtName.text!, theEmail: txtEmail.text!);
-        
-    }
+    @IBOutlet var tableView : UITableView!
+    var listData : [String] = []
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "background_grey.jpg"))
+        updateTable()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        updateTable()
+        self.tableView.reloadData()
+        super.viewWillAppear(animated)
+    }
+    
+    func updateTable() {
+        mainDelegate.readDataFromDatabase()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // How many rows there are in the TableView.
+        return mainDelegate.data.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // Height of all rows in TableView.
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Cell appearance for TableView.
+        
+        // Check if row is leaving the screen.
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SiteCell ?? SiteCell(style: .default, reuseIdentifier: "cell")
+        tableCell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        
+        let rowNum = indexPath.row
+        let imgIndex = mainDelegate.data[rowNum].img!
+        
+        tableCell.img.image = mainDelegate.imgData[imgIndex]
+        tableCell.nameLabel.text = mainDelegate.data[rowNum].name
+        tableCell.addressLabel.text = mainDelegate.data[rowNum].address
+        tableCell.phoneLabel.text = mainDelegate.data[rowNum].phone
+        tableCell.emailLabel.text = mainDelegate.data[rowNum].email
+        tableCell.genderLabel.text = mainDelegate.data[rowNum].gender
+        tableCell.dobLabel.text = mainDelegate.data[rowNum].dob
+        
+        return tableCell
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func unwindToProfileViewController(sender : UIStoryboardSegue) {
+        // Leave empty.
+    }
 
 }

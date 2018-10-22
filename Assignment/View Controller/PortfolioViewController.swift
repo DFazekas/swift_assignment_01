@@ -24,27 +24,14 @@ class PortfolioViewController: UIViewController, WKNavigationDelegate {
         activity.isHidden = true;
         activity.stopAnimating();
     }
-//    func webViewDidStartLoad(_ webView: UIWebView) {
-//        // Unhide and animate activity indicator for webView pre-load.
-//        activity.isHidden = false;
-//        activity.startAnimating();
-//    }
-    
-//    func webViewDidFinishLoad(_ webView: UIWebView) {
-//        // Hide and stop animating indicator on webView post-load.
-//        activity.isHidden = true;
-//        activity.stopAnimating();
-//    }
     
     /////// Miscellaneous
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Load webView.
-        //let urlAddress = URL(string: "https://github.com/DFazekas");
         let urlAddress = URL(string: "https://www.projectmkd.com");
         let url = URLRequest(url: urlAddress!);
-//        webView?.loadRequest(url as URLRequest);
         webView.load(url);
         webView.navigationDelegate = self;
     }
